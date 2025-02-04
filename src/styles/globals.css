@@ -48,7 +48,7 @@ body {
 
 .header-right {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 button {
@@ -72,13 +72,17 @@ button:hover {
     background: transparent;
     border: none;
     color: var(--text);
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
 }
 
 .dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
     opacity: 0.8;
 }
 

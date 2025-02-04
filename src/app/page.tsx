@@ -32,7 +32,7 @@ const DrivePage = () => {
     const getCurrentDirectory = () => {
         let currentDirectory = mockData;
         for (const folder of currentPath) {
-            currentDirectory = currentDirectory.find(item => item.name === folder)?.children || [];
+            currentDirectory = currentDirectory.find(item => item.name === folder)?.children ?? [];
         }
         return currentDirectory;
     };
@@ -40,10 +40,10 @@ const DrivePage = () => {
     return (
         <div className={`${darkMode ? "dark" : "light"} min-h-screen p-8`}>
             <div className="flex justify-between items-center mb-4">
-                <h1 className="text-2xl font-bold">Devin's Drive</h1>
+                <h1 className="text-3xl font-bold">Devin&#39;s Drive</h1>
                 <div className="flex gap-4 items-center">
-                    <button onClick={() => setDarkMode(prev => !prev)} className="flex items-center gap-1">
-                        {darkMode ? <Sun /> : <Moon />} Dark Mode
+                    <button onClick={() => setDarkMode(prev => !prev)} className="dark-mode-toggle">
+                        {darkMode ? <Sun /> : <Moon />}
                     </button>
                     <button className="flex items-center gap-1">
                         <Upload /> Upload
@@ -73,7 +73,7 @@ const DrivePage = () => {
                             )}
                         </td>
                         <td className="p-2">{item.type}</td>
-                        <td className="p-2">{item.size || "-"}</td>
+                        <td className="p-2">{item.size ?? "-"}</td>
                     </tr>
                 ))}
                 </tbody>
